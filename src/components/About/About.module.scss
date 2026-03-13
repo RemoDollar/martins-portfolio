@@ -1,0 +1,225 @@
+.about {
+  min-height: 100vh;
+  background: #0d1117;
+  padding: 6rem 0;
+  position: relative;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(46, 117, 182, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.sectionTitle span {
+  background: linear-gradient(135deg, #2e75b6, #64ffda);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionTitle::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #2e75b6, #64ffda);
+  margin-top: 0.5rem;
+  border-radius: 50px;
+}
+
+.content {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.textSide {
+  flex: 1.2;
+}
+
+.bio {
+  font-size: 1rem;
+  color: #8892b0;
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.infoLabel {
+  font-size: 0.75rem;
+  color: #495670;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.infoValue {
+  font-size: 0.95rem;
+  color: #ccd6f6;
+  font-weight: 500;
+}
+
+.infoAvailable {
+  font-size: 0.95rem;
+  color: #64ffda;
+  font-weight: 500;
+}
+
+.contactBtn {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #64ffda;
+  color: #64ffda;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.contactBtn:hover {
+  background: rgba(100, 255, 218, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+}
+
+.statsSide {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.statCard {
+  background: #112240;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  border-color: #2e75b6;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(46, 117, 182, 0.1);
+}
+
+.statNumber {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2e75b6, #64ffda);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: #8892b0;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+
+.techStack {
+  background: #112240;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.techTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ccd6f6;
+  margin-bottom: 1rem;
+}
+
+.techGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techBadge {
+  background: rgba(46, 117, 182, 0.15);
+  border: 1px solid rgba(46, 117, 182, 0.3);
+  color: #64ffda;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.techBadge:hover {
+  background: rgba(46, 117, 182, 0.3);
+  border-color: #64ffda;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

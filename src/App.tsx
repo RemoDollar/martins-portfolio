@@ -1,12 +1,14 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
+import About from "./components/About/About";
 
 const App: React.FC = () => {
   return (
     <div className="app">
       <Navbar />
       <Hero />
+      <About />
     </div>
   );
 };
