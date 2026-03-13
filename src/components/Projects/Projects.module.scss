@@ -1,0 +1,262 @@
+.projects {
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 6rem 0;
+  position: relative;
+}
+
+.projects::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(100, 255, 218, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.sectionTitle span {
+  background: linear-gradient(135deg, #2e75b6, #64ffda);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionTitle::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #2e75b6, #64ffda);
+  margin-top: 0.5rem;
+  border-radius: 50px;
+}
+
+.sectionSubtitle {
+  color: #8892b0;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.projectCard {
+  background: #112240;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.projectCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(135deg, #2e75b6, #64ffda);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover {
+  border-color: #2e75b6;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(46, 117, 182, 0.15);
+}
+
+.projectCard:hover::before {
+  transform: scaleX(1);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cardIcons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.folderIcon {
+  font-size: 2rem;
+}
+
+.cardLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.cardLink {
+  color: #8892b0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.cardLink:hover {
+  color: #64ffda;
+  transform: translateY(-2px);
+}
+
+.status {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.live {
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  border: 1px solid rgba(100, 255, 218, 0.3);
+}
+
+.inProgress {
+  background: rgba(46, 117, 182, 0.1);
+  color: #2e75b6;
+  border: 1px solid rgba(46, 117, 182, 0.3);
+}
+
+.projectTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ccd6f6;
+  transition: color 0.3s ease;
+}
+
+.projectCard:hover .projectTitle {
+  color: #64ffda;
+}
+
+.projectDescription {
+  font-size: 0.9rem;
+  color: #8892b0;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.techTag {
+  font-size: 0.75rem;
+  color: #64ffda;
+  font-family: "Courier New", monospace;
+}
+
+.techTag::before {
+  content: "#";
+  opacity: 0.5;
+}
+
+.moreProjects {
+  background: transparent;
+  border: 1px dashed #1e3a5f;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.moreProjects:hover {
+  border-color: #2e75b6;
+}
+
+.moreContent {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.moreIcon {
+  font-size: 2.5rem;
+}
+
+.moreTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ccd6f6;
+}
+
+.moreText {
+  font-size: 0.875rem;
+  color: #8892b0;
+  line-height: 1.6;
+}
+
+.githubBtn {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #64ffda;
+  color: #64ffda;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.githubBtn:hover {
+  background: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}
