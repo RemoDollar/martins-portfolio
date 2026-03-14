@@ -35,18 +35,37 @@ const Contact: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setStatus({
-        type: "success",
-        message: "Message sent successfully! I will get back to you soon.",
+    try {
+      const response = await fetch("https://formspree.io/f/xwvrqako", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setStatus({ type: "idle", message: "" }), 5000);
-    }, 1500);
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          message: "Message sent! I will get back to you soon.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus({
+          type: "error",
+          message: "Something went wrong. Please try again.",
+        });
+      }
+    } catch {
+      setStatus({
+        type: "error",
+        message: "Something went wrong. Please try again.",
+      });
+    }
+    setIsSubmitting(false);
+    setTimeout(() => setStatus({ type: "idle", message: "" }), 5000);
   };
 
   return (
