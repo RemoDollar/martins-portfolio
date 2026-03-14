@@ -1,6 +1,7 @@
-import React from "react"
-import { TypeAnimation } from "react-type-animation"
-import styles from "./Hero.module.scss"
+import React from "react";
+import profileImg from "../../assets/profile.jpg";
+import { TypeAnimation } from "react-type-animation";
+import styles from "./Hero.module.scss";
 
 const Hero: React.FC = () => {
   return (
@@ -30,21 +31,46 @@ const Hero: React.FC = () => {
           </div>
           <p className={styles.description}>
             I build responsive, modern and user-friendly web applications.
-            Passionate about clean code, great user experiences and
-            continuously learning new technologies.
+            Passionate about clean code, great user experiences and continuously
+            learning new technologies.
           </p>
           <div className={styles.buttons}>
-            <a href="#projects" className={styles.primaryBtn}>View My Work</a>
-            <a href="#contact" className={styles.secondaryBtn}>Hire Me</a>
+            <a href="#projects" className={styles.primaryBtn}>
+              View My Work
+            </a>
+            <a href="#contact" className={styles.secondaryBtn}>
+              Hire Me
+            </a>
           </div>
           <div className={styles.socialLinks}>
-            <a href="https://github.com/RemoDollar" target="_blank" rel="noreferrer" className={styles.socialLink}>GitHub</a>
-            <a href="mailto:judem0144@gmail.com" className={styles.socialLink}>Email</a>
+            <a
+              href="https://github.com/RemoDollar"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.socialLink}
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/martins-jude-579b06338"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.socialLink}
+            >
+              LinkedIn
+            </a>
+            <a href="mailto:judem0144@gmail.com" className={styles.socialLink}>
+              Email
+            </a>
           </div>
         </div>
         <div className={styles.imageWrapper}>
           <div className={styles.imagePlaceholder}>
-            <span>MM</span>
+            <img
+              src={profileImg}
+              alt="Martins Madubuegwu"
+              className={styles.profileImg}
+            />
           </div>
           <div className={styles.ring}></div>
           <div className={styles.ring2}></div>
@@ -57,7 +83,7 @@ const Hero: React.FC = () => {
         <p>Scroll Down</p>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
