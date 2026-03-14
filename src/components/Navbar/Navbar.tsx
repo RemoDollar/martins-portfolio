@@ -1,93 +1,86 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Navbar.module.scss";
-interface NavLink {
-  id: number;
-  label: string;
-  href: string;
-}
-const navLinks: NavLink[] = [
-  { id: 1, label: "Home", href: "#home" },
-  { id: 2, label: "About", href: "#about" },
-  { id: 3, label: "Projects", href: "#projects" },
-  { id: 4, label: "Skills", href: "#skills" },
-  { id: 5, label: "Contact", href: "#contact" },
-];
 const Navbar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   useEffect(() => {
     const handleScroll = (): void => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const handleLinkClick = (): void => {
+  const closeMenu = (): void => {
     setIsMenuOpen(false);
-  };
-  const handleMenuToggle = (): void => {
-    setIsMenuOpen(!isMenuOpen);
   };
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
-      <div className={styles.container}>
+      <div className={styles.inner}>
         <a href="#home" className={styles.logo}>
           Martins<span>.</span>
         </a>
-        <ul className={styles.navLinks}>
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <a
-                href={link.href}
-                className={styles.navLink}
-                onClick={handleLinkClick}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a href="#contact" className={styles.hireBtn} onClick={handleLinkClick}>
-          Hire Me
-        </a>
-        <button
-          className={`${styles.hamburger} ${isMenuOpen ? styles.active : ""}`}
-          onClick={handleMenuToggle}
-          aria-label="Toggle navigation menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ""}`}>
-        <ul>
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <a
-                href={link.href}
-                className={styles.mobileLink}
-                onClick={handleLinkClick}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+        <ul className={styles.desktopLinks}>
           <li>
-            <a
-              href="#contact"
-              className={styles.mobileHireBtn}
-              onClick={handleLinkClick}
-            >
-              Hire Me
+            <a href="#home" className={styles.link}>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" className={styles.link}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#projects" className={styles.link}>
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="#skills" className={styles.link}>
+              Skills
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className={styles.link}>
+              Contact
             </a>
           </li>
         </ul>
+        <a href="#contact" className={styles.hireBtn}>
+          Hire Me
+        </a>
+        <button
+          className={styles.hamburger}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Menu"
+        >
+          <span className={isMenuOpen ? styles.bar1Active : styles.bar1}></span>
+          <span className={isMenuOpen ? styles.bar2Active : styles.bar2}></span>
+          <span className={isMenuOpen ? styles.bar3Active : styles.bar3}></span>
+        </button>
       </div>
+      {isMenuOpen && (
+        <div className={styles.mobileMenu}>
+          <a href="#home" className={styles.mobileLink} onClick={closeMenu}>
+            Home
+          </a>
+          <a href="#about" className={styles.mobileLink} onClick={closeMenu}>
+            About
+          </a>
+          <a href="#projects" className={styles.mobileLink} onClick={closeMenu}>
+            Projects
+          </a>
+          <a href="#skills" className={styles.mobileLink} onClick={closeMenu}>
+            Skills
+          </a>
+          <a href="#contact" className={styles.mobileLink} onClick={closeMenu}>
+            Contact
+          </a>
+          <a href="#contact" className={styles.mobileHire} onClick={closeMenu}>
+            Hire Me
+          </a>
+        </div>
+      )}
     </nav>
   );
 };
