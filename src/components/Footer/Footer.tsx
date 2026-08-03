@@ -12,15 +12,38 @@ const Footer: React.FC = () => {
             Martins<span>.</span>
           </a>
           <div className={styles.links}>
-            <a href="#home" className={styles.link}>Home</a>
-            <a href="#about" className={styles.link}>About</a>
-            <a href="#projects" className={styles.link}>Projects</a>
-            <a href="#skills" className={styles.link}>Skills</a>
-            <a href="#contact" className={styles.link}>Contact</a>
+            <a href="#home" className={styles.link}>
+              Home
+            </a>
+            <a href="#about" className={styles.link}>
+              About
+            </a>
+            <a href="#projects" className={styles.link}>
+              Projects
+            </a>
+            <a href="#skills" className={styles.link}>
+              Skills
+            </a>
+            <a href="#contact" className={styles.link}>
+              Contact
+            </a>
           </div>
           <div className={styles.socials}>
-            <a href="https://github.com/RemoDollar" target="_blank" rel="noreferrer" className={styles.socialBtn}>
+            <a
+              href="https://github.com/RemoDollar"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.socialBtn}
+            >
               GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/martins-jude-579b06338"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.socialBtn}
+            >
+              LinkedIn
             </a>
             <a href="mailto:judem0144@gmail.com" className={styles.socialBtn}>
               Email
@@ -29,7 +52,8 @@ const Footer: React.FC = () => {
         </div>
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            &copy; {currentYear} Martins Madubuegwu. Built with React, TypeScript and SCSS.
+            &copy; {currentYear} Martins Madubuegwu. Built with React,
+            TypeScript and SCSS.
           </p>
           <p className={styles.credit}>
             Designed and developed with dedication
@@ -37,7 +61,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
 export default Footer

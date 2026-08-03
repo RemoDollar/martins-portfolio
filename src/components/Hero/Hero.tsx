@@ -65,6 +65,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
         <div className={styles.imageWrapper}>
+          <div className={styles.ring}></div>
+          <div className={styles.ring2}></div>
           <div className={styles.imagePlaceholder}>
             <img
               src={profileImg}
@@ -72,8 +74,6 @@ const Hero: React.FC = () => {
               className={styles.profileImg}
             />
           </div>
-          <div className={styles.ring}></div>
-          <div className={styles.ring2}></div>
         </div>
       </div>
       <div className={styles.scrollIndicator}>

@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://martins-portfolio-sage.vercel.app/sitemap.xml

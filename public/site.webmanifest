@@ -1,0 +1,22 @@
+{
+  "name": "Martins Madubuegwu Portfolio",
+  "short_name": "Martins",
+  "description": "Portfolio of Martins Madubuegwu - React Frontend Developer specializing in TypeScript, JavaScript, AI integrations, and modern web applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#111827",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
