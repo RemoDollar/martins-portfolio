@@ -4,28 +4,78 @@ import styles from "./Skills.module.scss";
 interface Skill {
   name: string;
   level: number;
-  category: string;
+  category: "Frontend" | "Tools";
 }
 
 const skills: Skill[] = [
-  { name: "HTML5", level: 90, category: "Frontend" },
-  { name: "CSS3", level: 90, category: "Frontend" },
-  { name: "JavaScript", level: 85, category: "Frontend" },
-  { name: "TypeScript", level: 70, category: "Frontend" },
-  { name: "React", level: 75, category: "Frontend" },
-  { name: "SCSS", level: 88, category: "Frontend" },
-  { name: "Tailwind CSS", level: 85, category: "Frontend" },
-  { name: "Git", level: 80, category: "Tools" },
-  { name: "WordPress", level: 75, category: "Tools" },
-  { name: "Vite", level: 70, category: "Tools" },
-  { name: "Responsive Design", level: 90, category: "Frontend" },
-  { name: "SEO", level: 70, category: "Tools" },
+  {
+    name: "HTML5",
+    level: 90,
+    category: "Frontend",
+  },
+  {
+    name: "CSS3",
+    level: 90,
+    category: "Frontend",
+  },
+  {
+    name: "JavaScript",
+    level: 95,
+    category: "Frontend",
+  },
+  {
+    name: "TypeScript",
+    level: 90,
+    category: "Frontend",
+  },
+  {
+    name: "React",
+    level: 95,
+    category: "Frontend",
+  },
+  {
+    name: "SCSS",
+    level: 98,
+    category: "Frontend",
+  },
+  {
+    name: "Tailwind CSS",
+    level: 95,
+    category: "Frontend",
+  },
+  {
+    name: "Git",
+    level: 90,
+    category: "Tools",
+  },
+  {
+    name: "WordPress",
+    level: 95,
+    category: "Tools",
+  },
+  {
+    name: "Vite",
+    level: 90,
+    category: "Tools",
+  },
+  {
+    name: "Responsive Design",
+    level: 90,
+    category: "Frontend",
+  },
+  {
+    name: "SEO",
+    level: 90,
+    category: "Tools",
+  },
 ];
 
-const categories = ["All", "Frontend", "Tools"];
+const categories = ["All", "Frontend", "Tools"] as const;
+
+type Category = (typeof categories)[number];
 
 const Skills: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
 
   const filteredSkills =
     activeCategory === "All"
@@ -33,79 +83,169 @@ const Skills: React.FC = () => {
       : skills.filter((skill) => skill.category === activeCategory);
 
   return (
-    <section className={styles.skills} id="skills">
+    <section
+      className={styles.skills}
+      id="skills"
+      aria-labelledby="skills-title"
+    >
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>
-          My <span>Skills</span>
-        </h2>
-        <p className={styles.sectionSubtitle}>
-          Technologies and tools I use to bring ideas to life.
-        </p>
-        <div className={styles.filterButtons}>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`${styles.filterBtn} ${activeCategory === cat ? styles.active : ""}`}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat}
-            </button>
-          ))}
+        {/* =====================================================
+            SECTION INTRO
+        ===================================================== */}
+
+        <div className={styles.sectionIntro}>
+          <span className={styles.sectionEyebrow}>MY EXPERTISE</span>
+
+          <h2 id="skills-title" className={styles.sectionTitle}>
+            My <span>Skills</span>
+          </h2>
+
+          <p className={styles.sectionSubtitle}>
+            Technologies and tools I use to bring ideas to life.
+          </p>
         </div>
+
+        {/* =====================================================
+            CATEGORY FILTERS
+        ===================================================== */}
+
+        <div
+          className={styles.filterButtons}
+          role="group"
+          aria-label="Filter skills by category"
+        >
+          {categories.map((category) => {
+            const isActive = activeCategory === category;
+
+            return (
+              <button
+                key={category}
+                type="button"
+                className={`${styles.filterBtn} ${
+                  isActive ? styles.active : ""
+                }`}
+                onClick={() => setActiveCategory(category)}
+                aria-pressed={isActive}
+              >
+                {category}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* =====================================================
+            SKILLS GRID
+        ===================================================== */}
+
         <div className={styles.skillsGrid}>
           {filteredSkills.map((skill) => (
-            <div key={skill.name} className={styles.skillCard}>
+            <article key={skill.name} className={styles.skillCard}>
               <div className={styles.skillHeader}>
-                <span className={styles.skillName}>{skill.name}</span>
-                <span className={styles.skillPercent}>{skill.level}%</span>
+                <h3 className={styles.skillName}>{skill.name}</h3>
+
+                <span
+                  className={styles.skillPercent}
+                  aria-label={`${skill.level} percent experience`}
+                >
+                  {skill.level}%
+                </span>
               </div>
-              <div className={styles.progressBar}>
+
+              <div
+                className={styles.progressBar}
+                role="progressbar"
+                aria-valuenow={skill.level}
+                aria-valuemin={1}
+                aria-valuemax={100}
+                aria-label={`${skill.name} experience level`}
+              >
                 <div
                   className={styles.progressFill}
-                  style={{ width: `${skill.level}%` }}
-                ></div>
+                  style={{
+                    width: `${skill.level}%`,
+                  }}
+                />
               </div>
+
               <span className={styles.skillCategory}>{skill.category}</span>
-            </div>
+            </article>
           ))}
         </div>
-        <div className={styles.extraSection}>
-          <h3 className={styles.extraTitle}>What I Bring To The Table</h3>
+
+        {/* =====================================================
+            WHAT I BRING TO THE TABLE
+        ===================================================== */}
+
+        <section
+          className={styles.extraSection}
+          aria-labelledby="strengths-title"
+        >
+          <div className={styles.extraHeading}>
+            <span className={styles.sectionEyebrow}>HOW I WORK</span>
+
+            <h3 id="strengths-title" className={styles.extraTitle}>
+              What I Bring To The Table
+            </h3>
+          </div>
+
           <div className={styles.extraGrid}>
-            <div className={styles.extraCard}>
-              <span className={styles.extraIcon}>⚡</span>
+            {/* Fast Learner */}
+            <article className={styles.extraCard}>
+              <div className={styles.extraIcon} aria-hidden="true">
+                ⚡
+              </div>
+
               <h4>Fast Learner</h4>
+
               <p>
                 I pick up new technologies quickly and apply them effectively in
                 real projects.
               </p>
-            </div>
-            <div className={styles.extraCard}>
-              <span className={styles.extraIcon}>📱</span>
+            </article>
+
+            {/* Mobile First */}
+            <article className={styles.extraCard}>
+              <div className={styles.extraIcon} aria-hidden="true">
+                📱
+              </div>
+
               <h4>Mobile First</h4>
+
               <p>
-                I build every project with mobile responsiveness as the top
+                I build every project with mobile responsiveness as a top
                 priority.
               </p>
-            </div>
-            <div className={styles.extraCard}>
-              <span className={styles.extraIcon}>💫</span>
+            </article>
+
+            {/* Clean Code */}
+            <article className={styles.extraCard}>
+              <div className={styles.extraIcon} aria-hidden="true">
+                💫
+              </div>
+
               <h4>Clean Code</h4>
+
               <p>
                 I write readable, well-structured and maintainable code on every
                 project.
               </p>
-            </div>
-            <div className={styles.extraCard}>
-              <span className={styles.extraIcon}>🎯</span>
+            </article>
+
+            {/* Detail Oriented */}
+            <article className={styles.extraCard}>
+              <div className={styles.extraIcon} aria-hidden="true">
+                🎯
+              </div>
+
               <h4>Detail Oriented</h4>
+
               <p>
-                I pay close attention to UI details to deliver pixel-perfect
-                results.
+                I pay close attention to UI details to deliver polished,
+                pixel-conscious results.
               </p>
-            </div>
+            </article>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   );

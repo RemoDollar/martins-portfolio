@@ -1,83 +1,178 @@
-import React from "react"
-import styles from "./About.module.scss"
+import React from "react";
+import {
+  FaCode,
+  FaLaptopCode,
+  FaGraduationCap,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaBriefcase,
+  FaArrowRight,
+} from "react-icons/fa";
+
+import styles from "./About.module.scss";
+
+const technologies = [
+  "React",
+  "TypeScript",
+  "JavaScript",
+  "Next.js",
+  "Node.js",
+  "MongoDB",
+  "SCSS",
+  "Git",
+  "WordPress",
+];
+
+const stats = [
+  {
+    number: "3+",
+    label: "Years Experience",
+    icon: <FaBriefcase />,
+  },
+  {
+    number: "15+",
+    label: "Projects Completed",
+    icon: <FaLaptopCode />,
+  },
+  {
+    number: "10+",
+    label: "Technologies",
+    icon: <FaCode />,
+  },
+  {
+    number: "100%",
+    label: "Commitment",
+    icon: <FaGraduationCap />,
+  },
+];
 
 const About: React.FC = () => {
   return (
     <section className={styles.about} id="about">
+      {/* Background Effects */}
+
+      <div className={styles.blurOne}></div>
+      <div className={styles.blurTwo}></div>
+      <div className={styles.grid}></div>
+
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>
-          About <span>Me</span>
-        </h2>
+        {/* Section Header */}
+
+        <div className={styles.heading}>
+          <span className={styles.subtitle}>GET TO KNOW ME</span>
+
+          <h2 className={styles.title}>
+            About <span>Me</span>
+          </h2>
+
+          <p className={styles.titleDescription}>
+            Passionate Frontend Engineer dedicated to crafting beautiful,
+            responsive and scalable web experiences that solve real-world
+            problems.
+          </p>
+        </div>
+
         <div className={styles.content}>
-          <div className={styles.textSide}>
-            <p className={styles.bio}>
-              I am a passionate Frontend Developer based in Nigeria with 2 years
-              of hands-on experience building modern and responsive web
-              applications. I started my journey studying Physics at the Federal
-              University of Lafia, where I developed strong problem-solving and
-              analytical skills that I now apply to writing clean, efficient code.
-            </p>
-            <p className={styles.bio}>
-              I specialize in building websites and web applications using
-              JavaScript, React, TypeScript, and SCSS. I love turning complex
-              problems into simple, beautiful and intuitive designs. When I am
-              not coding, I am constantly learning new technologies to stay
-              current in this fast-moving industry.
-            </p>
-            <div className={styles.infoGrid}>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Name</span>
-                <span className={styles.infoValue}>Martins Madubuegwu</span>
+          {/* LEFT */}
+
+          <div className={styles.left}>
+            <div className={styles.glassCard}>
+              <span className={styles.smallTitle}>WHO I AM</span>
+
+              <div className={styles.aboutTags}>
+                <span>Frontend Developer</span>
+
+                <span className={styles.dot}>•</span>
+
+                <span>Problem Solver</span>
+
+                <span className={styles.dot}>•</span>
+
+                <span>Continuous Learner</span>
               </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Email</span>
-                <span className={styles.infoValue}>judem0144@gmail.com</span>
-              </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Location</span>
-                <span className={styles.infoValue}>Nigeria</span>
-              </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Experience</span>
-                <span className={styles.infoValue}>2 Years</span>
-              </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Availability</span>
-                <span className={styles.infoAvailable}>Open to Work</span>
-              </div>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Education</span>
-                <span className={styles.infoValue}>BSc Physics</span>
+              <p>
+                I build modern, fast and scalable web applications using React,
+                TypeScript and today's frontend technologies. My goal is to
+                create digital products that combine clean architecture with
+                exceptional user experiences.
+              </p>
+
+              <p>
+                My background in Physics strengthened my analytical thinking,
+                allowing me to approach software engineering with precision,
+                creativity and a problem-solving mindset.
+              </p>
+
+              <a href="#contact" className={styles.contactButton}>
+                Let's Work Together
+                <FaArrowRight />
+              </a>
+            </div>
+
+            {/* Personal Info */}
+
+            <div className={styles.infoCard}>
+              <h4>Professional Information</h4>
+
+              <div className={styles.infoGrid}>
+                <div className={styles.infoItem}>
+                  <FaMapMarkerAlt />
+                  <div>
+                    <span>Location</span>
+                    <strong>Nigeria</strong>
+                  </div>
+                </div>
+
+                <div className={styles.infoItem}>
+                  <FaEnvelope />
+                  <div>
+                    <span>Email</span>
+                    <strong>judem0144@gmail.com</strong>
+                  </div>
+                </div>
+
+                <div className={styles.infoItem}>
+                  <FaGraduationCap />
+                  <div>
+                    <span>Education</span>
+                    <strong>BSc Physics</strong>
+                  </div>
+                </div>
+
+                <div className={styles.infoItem}>
+                  <FaBriefcase />
+                  <div>
+                    <span>Availability</span>
+                    <strong>Open for Full-Time & Remote Opportunities</strong>
+                  </div>
+                </div>
               </div>
             </div>
-            <a href="#contact" className={styles.contactBtn}>
-              Get In Touch
-            </a>
           </div>
-          <div className={styles.statsSide}>
+
+          {/* RIGHT */}
+
+          <div className={styles.right}>
             <div className={styles.statsGrid}>
-              <div className={styles.statCard}>
-                <span className={styles.statNumber}>2+</span>
-                <span className={styles.statLabel}>Years Experience</span>
-              </div>
-              <div className={styles.statCard}>
-                <span className={styles.statNumber}>10+</span>
-                <span className={styles.statLabel}>Projects Built</span>
-              </div>
-              <div className={styles.statCard}>
-                <span className={styles.statNumber}>8+</span>
-                <span className={styles.statLabel}>Technologies</span>
-              </div>
-              <div className={styles.statCard}>
-                <span className={styles.statNumber}>100%</span>
-                <span className={styles.statLabel}>Dedication</span>
-              </div>
+              {stats.map((item) => (
+                <div key={item.label} className={styles.statCard}>
+                  <div className={styles.icon}>{item.icon}</div>
+
+                  <h3>{item.number}</h3>
+
+                  <p>{item.label}</p>
+                </div>
+              ))}
             </div>
-            <div className={styles.techStack}>
-              <h3 className={styles.techTitle}>Technologies I Work With</h3>
+
+            <div className={styles.techCard}>
+              <h3>Technologies I Work With</h3>
+
               <div className={styles.techGrid}>
-                {["JavaScript","TypeScript","React","HTML5","CSS3","SCSS","Tailwind CSS","Git","WordPress"].map((tech) => (
-                  <span key={tech} className={styles.techBadge}>{tech}</span>
+                {technologies.map((tech) => (
+                  <span key={tech} className={styles.tech}>
+                    {tech}
+                  </span>
                 ))}
               </div>
             </div>
@@ -85,7 +180,7 @@ const About: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

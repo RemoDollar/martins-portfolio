@@ -1,151 +1,309 @@
-import React, { useState } from "react";
+import React from "react";
+import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
+
+import ProjectMockup from "./ProjectMockup";
 import styles from "./Projects.module.scss";
 
 interface Project {
   id: number;
   title: string;
-  description: string;
-  longDescription: string;
-  tech: string[];
-  liveUrl: string;
-  githubUrl: string;
-  featured: boolean;
+  category: string;
   status: string;
+  description: string;
+  tech: string[];
+  github: string;
+  live: string;
+  featured?: boolean;
+
+  visual: "browser" | "laptop" | "ai-dashboard" | "kanban";
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "E-M unisex Salon",
-    description:
-      "A fully responsive salon business website built for a real client.",
-    longDescription:
-      "A professional salon website featuring service listings, gallery section, contact form, and mobile-first responsive design. Built with clean semantic HTML, custom SCSS architecture and smooth CSS animations.",
-    tech: ["HTML5", "SCSS", "JavaScript", "WordPress"],
-    liveUrl: "https://e-munisexsalon.com",
-    githubUrl: "https://github.com/RemoDollar/e-munisexsalon",
-    featured: true,
+    title: "FLTH Podcast",
+    category: "Production",
     status: "Live",
+    featured: true,
+
+    description:
+      "A premium podcast platform focused on storytelling, inspiration and community. Built with React, TypeScript and SCSS featuring a modern UI, smooth animations and fully responsive layouts.",
+
+    tech: ["React", "TypeScript", "SCSS", "Vite"],
+
+    github: "https://github.com/RemoDollar",
+
+    live: "#",
+
+    visual: "browser",
   },
+
   {
     id: 2,
-    title: "Martins Portfolio",
+    title: "E-M Unisex Salon",
+    category: "Production",
+    status: "Live",
+
     description:
-      "My personal developer portfolio built with React, TypeScript and SCSS.",
-    longDescription:
-      "A modern dark-themed portfolio website showcasing my projects, skills and experience. Built with React, TypeScript, SCSS Modules and Vite for fast performance.",
+      "Professional salon website with service listings, booking information, gallery, contact section and mobile-first responsive design.",
+
+    tech: ["HTML5", "SCSS", "JavaScript", "WordPress"],
+
+    github: "https://github.com/RemoDollar/e-munisexsalon",
+
+    live: "https://e-munisexsalon.com",
+
+    visual: "browser",
+  },
+
+  {
+    id: 3,
+    title: "Martins Portfolio",
+    category: "Open Source",
+    status: "Live",
+
+    description:
+      "Personal developer portfolio showcasing my experience, projects, skills and frontend expertise using React and TypeScript.",
+
     tech: ["React", "TypeScript", "SCSS", "Vite"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/RemoDollar/martins-portfolio",
-    featured: true,
-    status: "In Progress",
+
+    github: "https://github.com/RemoDollar/martins-portfolio",
+
+    live: "#",
+
+    visual: "laptop",
+  },
+
+  {
+    id: 4,
+    title: "GrokScript",
+    category: "Open Source",
+    status: "Live",
+
+    description:
+      "AI-powered content generation platform for creating cinematic prompts, YouTube Shorts, storytelling workflows and production-ready scripts.",
+
+    tech: ["React", "TypeScript", "OpenAI", "Node.js"],
+
+    github: "https://github.com/RemoDollar",
+
+    live: "#",
+
+    visual: "ai-dashboard",
+  },
+
+  {
+    id: 5,
+    title: "AI Task Manager",
+    category: "Currently Building",
+    status: "Building",
+
+    description:
+      "An intelligent task management platform powered by AI for organizing work, generating suggestions and improving productivity.",
+
+    tech: ["React", "TypeScript", "MongoDB", "Node.js"],
+
+    github: "https://github.com/RemoDollar",
+
+    live: "#",
+
+    visual: "kanban",
   },
 ];
 
 const Projects: React.FC = () => {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const featured = projects.find((project) => project.featured);
+
+  const others = projects.filter((project) => !project.featured);
 
   return (
     <section className={styles.projects} id="projects">
+      {/* =========================================
+          BACKGROUND EFFECTS
+      ========================================= */}
+
+      <div className={styles.blurOne}></div>
+
+      <div className={styles.blurTwo}></div>
+
+      <div className={styles.grid}></div>
+
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>
-          My <span>Projects</span>
-        </h2>
-        <p className={styles.sectionSubtitle}>
-          Here are some of the projects I have built. Each one taught me
-          something new.
-        </p>
-        <div className={styles.projectsGrid}>
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className={`${styles.projectCard} ${project.featured ? styles.featured : ""} ${hoveredId === project.id ? styles.hovered : ""}`}
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              <div className={styles.cardTop}>
-                <div className={styles.cardIcons}>
-                  <span className={styles.folderIcon}>⬡</span>
-                  <div className={styles.cardLinks}>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.cardLink}
-                      title="GitHub"
-                    >
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                      </svg>
-                    </a>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.cardLink}
-                      title="Live Site"
-                    >
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                        <polyline points="15 3 21 3 21 9" />
-                        <line x1="10" y1="14" x2="21" y2="3" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+        {/* =========================================
+            SECTION HEADING
+        ========================================= */}
+
+        <div className={styles.heading}>
+          <span className={styles.subtitle}>FEATURED WORK</span>
+
+          <h2 className={styles.title}>
+            My <span>Projects</span>
+          </h2>
+
+          <p className={styles.description}>
+            Every project represents a challenge solved through thoughtful
+            design, clean architecture and modern frontend technologies.
+          </p>
+        </div>
+
+        {/* =========================================
+            FEATURED PROJECT
+        ========================================= */}
+
+        {featured && (
+          <div className={styles.featuredProject}>
+            <div className={styles.projectImage}>
+              <div className={styles.imageOverlay}></div>
+
+              <ProjectMockup type={featured.visual} />
+            </div>
+
+            <div className={styles.projectContent}>
+              <div className={styles.projectTop}>
+                <span className={styles.category}>{featured.category}</span>
+
                 <span
-                  className={`${styles.status} ${project.status === "Live" ? styles.live : styles.inProgress}`}
+                  className={`${styles.status} ${
+                    featured.status === "Live" ? styles.live : styles.building
+                  }`}
+                >
+                  {featured.status}
+                </span>
+              </div>
+
+              <h3>{featured.title}</h3>
+
+              <p>{featured.description}</p>
+
+              <div className={styles.techStack}>
+                {featured.tech.map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))}
+              </div>
+
+              <div className={styles.links}>
+                <a
+                  href={featured.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${featured.title} GitHub repository`}
+                >
+                  <FaGithub />
+                </a>
+
+                <a
+                  href={featured.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View ${featured.title} live`}
+                >
+                  <FaExternalLinkAlt />
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* =========================================
+            OTHER PROJECTS
+        ========================================= */}
+
+        <div className={styles.projectsGrid}>
+          {others.map((project) => (
+            <div className={styles.projectCard} key={project.id}>
+              {/* Project Mockup */}
+
+              <div className={styles.cardMockup}>
+                <ProjectMockup type={project.visual} />
+              </div>
+
+              {/* Card Header */}
+
+              <div className={styles.cardHeader}>
+                <span
+                  className={`${styles.status} ${
+                    project.status === "Live" ? styles.live : styles.building
+                  }`}
                 >
                   {project.status}
                 </span>
               </div>
-              <h3 className={styles.projectTitle}>{project.title}</h3>
-              <p className={styles.projectDescription}>
-                {project.longDescription}
-              </p>
-              <div className={styles.techList}>
-                {project.tech.map((tech) => (
-                  <span key={tech} className={styles.techTag}>
-                    {tech}
-                  </span>
-                ))}
+
+              {/* Project Information */}
+
+              <div className={styles.cardContent}>
+                <span className={styles.category}>{project.category}</span>
+
+                <h3>{project.title}</h3>
+
+                <p>{project.description}</p>
+
+                {/* Technology Stack */}
+
+                <div className={styles.techStack}>
+                  {project.tech.map((tech) => (
+                    <span key={tech}>{tech}</span>
+                  ))}
+                </div>
+
+                {/* Project Links */}
+
+                <div className={styles.cardLinks}>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${project.title} GitHub repository`}
+                  >
+                    <FaGithub />
+                  </a>
+
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${project.title} live`}
+                  >
+                    <FaExternalLinkAlt />
+                  </a>
+                </div>
               </div>
             </div>
           ))}
-          <div className={styles.moreProjects}>
-            <div className={styles.moreContent}>
-              <span className={styles.moreIcon}>✦</span>
-              <h3 className={styles.moreTitle}>More Coming Soon</h3>
-              <p className={styles.moreText}>
-                I am constantly building new projects. Check my GitHub for the
-                latest work.
-              </p>
-              <a
-                href="https://github.com/RemoDollar"
-                target="_blank"
-                rel="noreferrer"
-                className={styles.githubBtn}
-              >
-                View GitHub Profile
-              </a>
-            </div>
+        </div>
+
+        {/* =========================================
+            BOTTOM CALL TO ACTION
+        ========================================= */}
+
+        <div className={styles.bottomCTA}>
+          <h3>Interested in seeing more?</h3>
+
+          <p>
+            I'm constantly building products, experimenting with AI and creating
+            modern web experiences. Explore more of my work on GitHub or let's
+            build something amazing together.
+          </p>
+
+          <div className={styles.ctaButtons}>
+            <a
+              href="https://github.com/RemoDollar"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.githubButton}
+            >
+              View GitHub
+            </a>
+
+            <a href="#contact" className={styles.contactButton}>
+              Contact Me
+              <FaArrowRight />
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
 };
-<span className={styles.folderIcon}>⬡</span>;
+
 export default Projects;

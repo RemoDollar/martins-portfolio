@@ -1,225 +1,2009 @@
+/* =====================================================
+   ABOUT SECTION
+   PREMIUM PORTFOLIO V4
+===================================================== */
+
 .about {
-  min-height: 100vh;
-  background: #0d1117;
-  padding: 6rem 0;
   position: relative;
+  overflow: hidden;
+  background: #070b16;
+  padding: 8rem 0;
+  isolation: isolate;
 }
 
-.about::before {
-  content: "";
+/* =====================================================
+   BACKGROUND EFFECTS
+===================================================== */
+
+.blurOne,
+.blurTwo {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(46, 117, 182, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(120px);
   pointer-events: none;
+  z-index: -1;
 }
+
+.blurOne {
+  width: 420px;
+  height: 420px;
+
+  top: -120px;
+  left: -120px;
+
+  background: rgba(59, 130, 246, 0.12);
+
+  animation: floatBlobOne 18s ease-in-out infinite;
+}
+
+.blurTwo {
+  width: 520px;
+  height: 520px;
+
+  bottom: -220px;
+  right: -180px;
+
+  background: rgba(20, 184, 166, 0.08);
+
+  animation: floatBlobTwo 24s ease-in-out infinite;
+}
+
+/* =====================================================
+   GRID BACKGROUND
+===================================================== */
+
+.grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+
+  background-size: 60px 60px;
+
+  mask-image: radial-gradient(circle, white, transparent 90%);
+  -webkit-mask-image: radial-gradient(circle, white, transparent 90%);
+
+  opacity: 0.45;
+
+  pointer-events: none;
+
+  z-index: -2;
+}
+
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+  width: min(1280px, 92%);
 
-.sectionTitle {
-  font-family: "Poppins", sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 3rem;
+  margin-inline: auto;
+
   position: relative;
+
+  z-index: 2;
 }
 
-.sectionTitle span {
-  background: linear-gradient(135deg, #2e75b6, #64ffda);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.heading {
+  max-width: 760px;
+
+  margin: 0 auto 5rem;
+
+  text-align: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+/* =====================================================
+   SMALL TITLE
+===================================================== */
+
+.subtitle {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0.65rem 1.3rem;
+
+  border-radius: 999px;
+
+  background: rgba(59, 130, 246, 0.08);
+
+  border: 1px solid rgba(59, 130, 246, 0.25);
+
+  color: #5eead4;
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 1.5rem;
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* =====================================================
+   MAIN TITLE
+===================================================== */
+
+.title {
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+
+  line-height: 1.05;
+
+  font-weight: 800;
+
+  color: #fff;
+
+  margin-bottom: 1.5rem;
+
+  font-family: "Poppins", sans-serif;
+
+  letter-spacing: -2px;
+}
+
+.title span {
+  background: linear-gradient(135deg, #60a5fa, #22d3ee, #5eead4);
+
   background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-.sectionTitle::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(135deg, #2e75b6, #64ffda);
-  margin-top: 0.5rem;
-  border-radius: 50px;
+/* =====================================================
+   TITLE DESCRIPTION
+===================================================== */
+
+.titleDescription {
+  max-width: 720px;
+
+  color: #9ca3af;
+
+  font-size: 1.08rem;
+
+  line-height: 1.9;
+
+  font-weight: 400;
 }
+
+/* =====================================================
+   CONTENT LAYOUT
+===================================================== */
 
 .content {
-  display: flex;
-  gap: 4rem;
-  align-items: flex-start;
-}
-
-.textSide {
-  flex: 1.2;
-}
-
-.bio {
-  font-size: 1rem;
-  color: #8892b0;
-  line-height: 1.9;
-  margin-bottom: 1.5rem;
-}
-
-.infoGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin: 2rem 0;
+
+  grid-template-columns:
+    1.05fr
+    0.95fr;
+
+  gap: 4rem;
+
+  align-items: start;
 }
 
-.infoItem {
+/* =====================================================
+   LEFT COLUMN
+===================================================== */
+
+.left {
   display: flex;
+
   flex-direction: column;
-  gap: 0.25rem;
-}
 
-.infoLabel {
-  font-size: 0.75rem;
-  color: #495670;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-}
-
-.infoValue {
-  font-size: 0.95rem;
-  color: #ccd6f6;
-  font-weight: 500;
-}
-
-.infoAvailable {
-  font-size: 0.95rem;
-  color: #64ffda;
-  font-weight: 500;
-}
-
-.contactBtn {
-  display: inline-block;
-  background: transparent;
-  border: 1px solid #64ffda;
-  color: #64ffda;
-  padding: 0.875rem 2rem;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  margin-top: 1rem;
-}
-
-.contactBtn:hover {
-  background: rgba(100, 255, 218, 0.1);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-}
-
-.statsSide {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   gap: 2rem;
 }
 
-.statsGrid {
+/* =====================================================
+   RIGHT COLUMN
+===================================================== */
+
+.right {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2rem;
+
+  position: relative;
+}
+/* ============================================================
+   ABOUT CONTENT LAYOUT
+============================================================ */
+
+.content {
+  position: relative;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+
+  grid-template-columns: 1.2fr 0.8fr;
+
+  gap: 90px;
+
+  align-items: center;
+
+  z-index: 2;
 }
 
-.statCard {
-  background: #112240;
-  border: 1px solid #1e3a5f;
-  border-radius: 12px;
-  padding: 1.5rem;
+/* ============================================================
+   LEFT CONTENT
+============================================================ */
+
+.left {
+  position: relative;
+
   display: flex;
+
   flex-direction: column;
+
+  gap: 34px;
+}
+
+.smallTitle {
+  display: flex;
+
   align-items: center;
-  text-align: center;
+
+  gap: 12px;
+
+  color: #4fd1ff;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.smallTitle::before {
+  content: "";
+
+  width: 45px;
+
+  height: 2px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+}
+
+/* ===========================
+   WHO I AM TAGS
+=========================== */
+
+.aboutTags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin: 18px 0 28px;
+
+  color: #f8fafc;
+
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.aboutTags span:not(.dot) {
   transition: all 0.3s ease;
 }
 
-.statCard:hover {
-  border-color: #2e75b6;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(46, 117, 182, 0.1);
+.aboutTags span:not(.dot):hover {
+  color: #64ffda;
 }
 
-.statNumber {
-  font-family: "Poppins", sans-serif;
-  font-size: 2rem;
+.dot {
+  color: rgba(100, 255, 218, 0.45);
+  font-size: 1.2rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.heading {
+  font-size: clamp(2.8rem, 6vw, 4.7rem);
+
   font-weight: 800;
-  background: linear-gradient(135deg, #2e75b6, #64ffda);
+
+  line-height: 1.05;
+
+  color: white;
+
+  max-width: 720px;
+}
+
+.heading span {
+  background: linear-gradient(135deg, #60a5fa, #22d3ee, #38bdf8);
+
   -webkit-background-clip: text;
+
   -webkit-text-fill-color: transparent;
+
   background-clip: text;
 }
 
-.statLabel {
-  font-size: 0.8rem;
-  color: #8892b0;
-  margin-top: 0.25rem;
-  text-align: center;
+.description {
+  font-size: 1.05rem;
+
+  line-height: 2;
+
+  color: #94a3b8;
+
+  max-width: 720px;
 }
 
-.techStack {
-  background: #112240;
-  border: 1px solid #1e3a5f;
-  border-radius: 12px;
-  padding: 1.5rem;
+.description strong {
+  color: white;
+
+  font-weight: 700;
 }
 
-.techTitle {
-  font-family: "Poppins", sans-serif;
+/* ============================================================
+   HIGHLIGHT CARD
+============================================================ */
+
+.highlightCard {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 28px;
+
+  border-radius: 26px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(24px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.45s;
+}
+
+.highlightCard::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    130deg,
+    rgba(59, 130, 246, 0.08),
+    transparent 40%,
+    rgba(6, 182, 212, 0.08)
+  );
+
+  opacity: 0.9;
+}
+
+.highlightCard:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(59, 130, 246, 0.3);
+
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(59, 130, 246, 0.18);
+}
+
+.highlightContent {
+  position: relative;
+
+  z-index: 2;
+}
+
+.highlightTitle {
+  font-size: 1.15rem;
+
+  font-weight: 700;
+
+  color: white;
+
+  margin-bottom: 16px;
+}
+
+.highlightText {
+  color: #9ca3af;
+
+  line-height: 1.9;
+
   font-size: 1rem;
-  font-weight: 600;
-  color: #ccd6f6;
-  margin-bottom: 1rem;
 }
+
+/* ============================================================
+   INFORMATION GRID
+============================================================ */
+
+.infoGrid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.infoCard {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 22px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  transition: 0.35s;
+}
+
+.infoCard:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(96, 165, 250, 0.28);
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.infoLabel {
+  display: block;
+
+  font-size: 0.74rem;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  color: #64748b;
+
+  margin-bottom: 10px;
+}
+
+.infoValue {
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+.available {
+  color: #34d399;
+
+  font-weight: 700;
+}
+
+/* ============================================================
+   BUTTON GROUP
+============================================================ */
+
+.buttonGroup {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+
+  margin-top: 10px;
+}
+
+.primaryBtn {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 16px 34px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+  color: white;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: 0.35s;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 20px 35px rgba(37, 99, 235, 0.35);
+}
+
+.secondaryBtn {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 16px 34px;
+
+  border-radius: 18px;
+
+  text-decoration: none;
+
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(18px);
+
+  transition: 0.35s;
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-5px);
+
+  border-color: #3b82f6;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+/* ============================================================
+   PROFESSIONAL INFORMATION CARD
+============================================================ */
+
+.infoCard {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 2rem;
+
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+
+  transition: all 0.45s ease;
+}
+
+.infoCard:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(59, 130, 246, 0.28);
+
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.35),
+    0 0 40px rgba(59, 130, 246, 0.12);
+}
+
+/* decorative glow */
+
+.infoCard::before {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+
+  height: 240px;
+
+  border-radius: 50%;
+
+  top: -120px;
+
+  right: -120px;
+
+  background: rgba(59, 130, 246, 0.12);
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+.infoCard::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+
+  height: 180px;
+
+  border-radius: 50%;
+
+  bottom: -90px;
+
+  left: -90px;
+
+  background: rgba(20, 184, 166, 0.1);
+
+  filter: blur(60px);
+
+  pointer-events: none;
+}
+
+/* ============================================================
+   CARD TITLE
+============================================================ */
+
+.infoCard h4 {
+  position: relative;
+
+  z-index: 2;
+
+  color: #fff;
+
+  font-size: 1.35rem;
+
+  font-weight: 700;
+
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   INFORMATION GRID
+============================================================ */
+
+.infoGrid {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1.25rem;
+}
+
+/* ============================================================
+   SINGLE INFO ITEM
+============================================================ */
+
+.infoItem {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 1rem;
+
+  padding: 1rem;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.04);
+
+  transition: 0.35s ease;
+}
+
+.infoItem:hover {
+  transform: translateY(-4px);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border-color: rgba(59, 130, 246, 0.18);
+}
+
+/* ============================================================
+   ICON
+============================================================ */
+
+.infoItem svg {
+  flex-shrink: 0;
+
+  font-size: 1.15rem;
+
+  color: #38bdf8;
+
+  margin-top: 3px;
+}
+
+/* ============================================================
+   LABELS
+============================================================ */
+
+.infoItem span {
+  display: block;
+
+  font-size: 0.75rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.6px;
+
+  color: #64748b;
+
+  margin-bottom: 6px;
+
+  font-weight: 600;
+}
+
+/* ============================================================
+   VALUES
+============================================================ */
+
+.infoItem strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 0.97rem;
+
+  font-weight: 600;
+
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SPECIAL AVAILABILITY STYLE
+============================================================ */
+
+.infoItem:last-child strong {
+  color: #34d399;
+}
+
+/* ============================================================
+   GLASS BORDER SHIMMER
+============================================================ */
+
+.infoCard:hover::before {
+  animation: glassGlow 4s linear infinite;
+}
+/* ============================================================
+   RIGHT COLUMN
+============================================================ */
+
+.right {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+/* ============================================================
+   STATS GRID
+============================================================ */
+
+.statsGrid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1.5rem;
+}
+
+/* ============================================================
+   STAT CARD
+============================================================ */
+
+.statCard {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 220px;
+
+  border-radius: 28px;
+
+  padding: 2rem;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+/* ============================================================
+   BACKGROUND GLOW
+============================================================ */
+
+.statCard::before {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+
+  height: 220px;
+
+  border-radius: 50%;
+
+  right: -110px;
+
+  top: -110px;
+
+  background: rgba(59, 130, 246, 0.12);
+
+  filter: blur(70px);
+
+  transition: 0.45s;
+}
+
+.statCard::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03),
+    transparent,
+    rgba(96, 165, 250, 0.05)
+  );
+
+  opacity: 0.8;
+
+  pointer-events: none;
+}
+
+/* ============================================================
+   HOVER
+============================================================ */
+
+.statCard:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  border-color: rgba(59, 130, 246, 0.28);
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.35),
+    0 0 45px rgba(59, 130, 246, 0.18);
+}
+
+.statCard:hover::before {
+  transform: scale(1.2);
+
+  background: rgba(34, 211, 238, 0.18);
+}
+
+/* ============================================================
+   ICON
+============================================================ */
+
+.icon {
+  position: relative;
+
+  z-index: 2;
+
+  width: 60px;
+
+  height: 60px;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  margin-bottom: 1.5rem;
+
+  background: rgba(59, 130, 246, 0.12);
+
+  border: 1px solid rgba(59, 130, 246, 0.18);
+
+  color: #38bdf8;
+
+  font-size: 1.45rem;
+
+  transition: 0.35s;
+}
+
+.statCard:hover .icon {
+  transform: rotate(-8deg) scale(1.08);
+
+  background: rgba(59, 130, 246, 0.2);
+
+  color: white;
+}
+
+/* ============================================================
+   NUMBER
+============================================================ */
+
+.statCard h3 {
+  position: relative;
+
+  z-index: 2;
+
+  font-size: 3rem;
+
+  line-height: 1;
+
+  margin-bottom: 0.6rem;
+
+  font-weight: 800;
+
+  font-family: "Poppins", sans-serif;
+
+  background: linear-gradient(135deg, #60a5fa, #22d3ee, #5eead4);
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+}
+
+/* ============================================================
+   LABEL
+============================================================ */
+
+.statCard p {
+  position: relative;
+
+  z-index: 2;
+
+  color: #cbd5e1;
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+
+  font-weight: 500;
+
+  max-width: 150px;
+}
+
+/* ============================================================
+   STAGGER EFFECT
+============================================================ */
+
+.statCard:nth-child(2) {
+  margin-top: 35px;
+}
+
+.statCard:nth-child(4) {
+  margin-top: 35px;
+}
+
+/* ============================================================
+   FLOAT ANIMATION
+============================================================ */
+
+.statCard {
+  animation: cardFloat 8s ease-in-out infinite;
+}
+
+.statCard:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+.statCard:nth-child(3) {
+  animation-delay: 3s;
+}
+
+.statCard:nth-child(4) {
+  animation-delay: 4.5s;
+}
+/* ============================================================
+   TECHNOLOGY CARD
+============================================================ */
+
+.techCard {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 2rem;
+
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+
+  transition: all 0.45s ease;
+}
+
+.techCard:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(59, 130, 246, 0.28);
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.35),
+    0 0 45px rgba(59, 130, 246, 0.18);
+}
+
+/* ============================================================
+   DECORATIVE GLOW
+============================================================ */
+
+.techCard::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+
+  height: 260px;
+
+  border-radius: 50%;
+
+  top: -120px;
+
+  right: -120px;
+
+  background: rgba(34, 211, 238, 0.1);
+
+  filter: blur(80px);
+
+  transition: 0.45s ease;
+}
+
+.techCard:hover::before {
+  transform: scale(1.15);
+}
+
+/* ============================================================
+   TITLE
+============================================================ */
+
+.techCard h3 {
+  position: relative;
+
+  z-index: 2;
+
+  color: white;
+
+  font-size: 1.35rem;
+
+  font-weight: 700;
+
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   TECH GRID
+============================================================ */
 
 .techGrid {
+  position: relative;
+
+  z-index: 2;
+
   display: flex;
+
   flex-wrap: wrap;
-  gap: 0.5rem;
+
+  gap: 1rem;
 }
 
-.techBadge {
-  background: rgba(46, 117, 182, 0.15);
-  border: 1px solid rgba(46, 117, 182, 0.3);
-  color: #64ffda;
-  padding: 0.35rem 0.85rem;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
+/* ============================================================
+   TECH CHIP
+============================================================ */
+
+.tech {
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0.9rem 1.4rem;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #e5e7eb;
+
+  font-size: 0.92rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+
+  cursor: default;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.techBadge:hover {
-  background: rgba(46, 117, 182, 0.3);
-  border-color: #64ffda;
-  transform: translateY(-2px);
+/* ============================================================
+   CHIP SHINE
+============================================================ */
+
+.tech::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  transform: translateX(-120%);
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+
+  transition: transform 0.7s ease;
 }
 
-@media (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    gap: 3rem;
+.tech:hover::before {
+  transform: translateX(120%);
+}
+
+/* ============================================================
+   CHIP HOVER
+============================================================ */
+
+.tech:hover {
+  transform: translateY(-6px) scale(1.05);
+
+  color: white;
+
+  background: rgba(59, 130, 246, 0.14);
+
+  border-color: rgba(59, 130, 246, 0.35);
+
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.18);
+}
+
+/* ============================================================
+   STAGGER COLORS
+============================================================ */
+
+.tech:nth-child(3n) {
+  border-color: rgba(34, 211, 238, 0.2);
+}
+
+.tech:nth-child(4n) {
+  border-color: rgba(94, 234, 212, 0.2);
+}
+
+.tech:nth-child(5n) {
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+/* ============================================================
+   FLOAT EFFECT
+============================================================ */
+
+.tech {
+  animation: techFloat 10s ease-in-out infinite;
+}
+
+.tech:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.tech:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.tech:nth-child(4) {
+  animation-delay: 1.8s;
+}
+
+.tech:nth-child(5) {
+  animation-delay: 2.4s;
+}
+
+.tech:nth-child(6) {
+  animation-delay: 3s;
+}
+
+.tech:nth-child(7) {
+  animation-delay: 3.6s;
+}
+
+.tech:nth-child(8) {
+  animation-delay: 4.2s;
+}
+
+.tech:nth-child(9) {
+  animation-delay: 4.8s;
+}
+/* ============================================================
+   FLOATING DECORATIVE ELEMENTS
+============================================================ */
+
+.about::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+
+  height: 500px;
+
+  top: -220px;
+
+  right: -180px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.08),
+    transparent 70%
+  );
+
+  filter: blur(90px);
+
+  animation: floatGlowOne 18s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+.about::after {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+
+  height: 420px;
+
+  bottom: -180px;
+
+  left: -180px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(20, 184, 166, 0.08),
+    transparent 70%
+  );
+
+  filter: blur(90px);
+
+  animation: floatGlowTwo 22s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+/* ============================================================
+   GLASS CARD SHIMMER
+============================================================ */
+
+.glassCard {
+  position: relative;
+}
+
+.glassCard::after {
+  content: "";
+
+  position: absolute;
+
+  top: -150%;
+
+  left: -150%;
+
+  width: 300%;
+
+  height: 300%;
+
+  background: linear-gradient(
+    135deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 65%
+  );
+
+  transform: rotate(25deg);
+
+  transition: 1.2s;
+}
+
+.glassCard:hover::after {
+  top: -40%;
+
+  left: -40%;
+}
+
+/* ============================================================
+   STAT CARD ICON GLOW
+============================================================ */
+
+.icon {
+  position: relative;
+}
+
+.icon::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -8px;
+
+  border-radius: 18px;
+
+  background: rgba(59, 130, 246, 0.18);
+
+  filter: blur(18px);
+
+  opacity: 0;
+
+  transition: 0.35s ease;
+
+  z-index: -1;
+}
+
+.statCard:hover .icon::after {
+  opacity: 1;
+}
+
+/* ============================================================
+   TECH CARD GLOW
+============================================================ */
+
+.techCard {
+  position: relative;
+}
+
+.techCard::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 30px;
+
+  border: 1px solid transparent;
+
+  background:
+    linear-gradient(#0000, #0000) padding-box,
+    linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(34, 211, 238, 0.2))
+      border-box;
+
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+
+  mask-composite: exclude;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+}
+
+/* ============================================================
+   SECTION FADE
+============================================================ */
+
+.heading {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.left {
+  animation: slideLeft 1s ease forwards;
+}
+
+.right {
+  animation: slideRight 1s ease forwards;
+}
+
+/* ============================================================
+   SOFT FLOATING
+============================================================ */
+
+.glassCard {
+  animation: cardFloat 7s ease-in-out infinite;
+}
+
+.infoCard {
+  animation: cardFloat 8s ease-in-out infinite;
+
+  animation-delay: 1s;
+}
+
+.techCard {
+  animation: cardFloat 9s ease-in-out infinite;
+
+  animation-delay: 2s;
+}
+
+/* ============================================================
+   PARAGRAPH SPACING
+============================================================ */
+
+.glassCard p {
+  margin-bottom: 1.4rem;
+}
+
+.glassCard p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   BUTTON MICRO INTERACTION
+============================================================ */
+
+.contactButton svg {
+  transition: transform 0.35s ease;
+}
+
+.contactButton:hover svg {
+  transform: translateX(6px);
+}
+
+/* ============================================================
+   TITLE UNDERLINE ANIMATION
+============================================================ */
+
+.title {
+  position: relative;
+
+  display: inline-block;
+}
+
+.title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: -14px;
+
+  transform: translateX(-50%);
+
+  width: 90px;
+
+  height: 4px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(90deg, #3b82f6, #22d3ee);
+}
+
+/* ============================================================
+   SMOOTH TRANSITIONS
+============================================================ */
+
+* {
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+/* ============================================================
+   RESPONSIVE — LARGE LAPTOPS (1200px)
+============================================================ */
+
+@media (max-width: 1200px) {
+  .container {
+    width: min(1100px, 92%);
   }
 
-  .sectionTitle {
+  .content {
+    gap: 60px;
+  }
+
+  .heading {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .statsGrid {
+    gap: 20px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — TABLETS (992px)
+============================================================ */
+
+@media (max-width: 992px) {
+  .content {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .left {
+    order: 1;
+  }
+
+  .right {
+    order: 2;
+  }
+
+  .heading {
+    text-align: center;
+
+    align-items: center;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .glassCard {
+    width: 100%;
+  }
+
+  .infoCard {
+    width: 100%;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (768px)
+============================================================ */
+
+@media (max-width: 768px) {
+  .about {
+    padding: 6rem 0;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .heading {
+    margin-bottom: 3.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+
+    line-height: 1.15;
+  }
+
+  .titleDescription {
+    font-size: 1rem;
+
+    line-height: 1.8;
+  }
+
+  .glassCard {
+    padding: 28px;
+  }
+
+  .glassCard h3 {
     font-size: 2rem;
+  }
+
+  .glassCard p {
+    font-size: 0.98rem;
   }
 
   .infoGrid {
     grid-template-columns: 1fr;
   }
 
-  .statsGrid {
-    grid-template-columns: 1fr 1fr;
+  .infoItem {
+    padding: 16px;
   }
+
+  .buttonGroup {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .statCard {
+    min-height: 180px;
+  }
+
+  .statCard:nth-child(2),
+  .statCard:nth-child(4) {
+    margin-top: 0;
+  }
+
+  .techGrid {
+    justify-content: center;
+  }
+  .aboutTags {
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    font-size: 1rem;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE (576px)
+============================================================ */
+
+@media (max-width: 576px) {
+  .subtitle {
+    font-size: 0.72rem;
+
+    letter-spacing: 2px;
+
+    padding: 0.55rem 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .glassCard {
+    padding: 22px;
+
+    border-radius: 22px;
+  }
+
+  .infoCard {
+    padding: 22px;
+
+    border-radius: 22px;
+  }
+
+  .techCard {
+    padding: 22px;
+
+    border-radius: 22px;
+  }
+
+  .statCard {
+    padding: 24px;
+  }
+
+  .statCard h3 {
+    font-size: 2.4rem;
+  }
+
+  .icon {
+    width: 52px;
+
+    height: 52px;
+
+    font-size: 1.2rem;
+  }
+
+  .tech {
+    padding: 0.8rem 1.1rem;
+
+    font-size: 0.84rem;
+  }
+}
+
+/* ============================================================
+   EXTRA SMALL DEVICES (400px)
+============================================================ */
+
+@media (max-width: 400px) {
+  .container {
+    width: 94%;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .glassCard {
+    padding: 18px;
+  }
+
+  .infoCard {
+    padding: 18px;
+  }
+
+  .techCard {
+    padding: 18px;
+  }
+
+  .statCard {
+    min-height: 160px;
+
+    padding: 20px;
+  }
+
+  .statCard h3 {
+    font-size: 2.1rem;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 15px 18px;
+
+    font-size: 0.9rem;
+  }
+
+  .techGrid {
+    gap: 10px;
+  }
+
+  .tech {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+/* ============================================================
+   KEYFRAME ANIMATIONS
+============================================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardFloat {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes techFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatGlowOne {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(45px, -35px) scale(1.08);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes floatGlowTwo {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-40px, 30px) scale(1.12);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* ============================================================
+   PERFORMANCE OPTIMIZATION
+============================================================ */
+
+.about,
+.glassCard,
+.infoCard,
+.techCard,
+.statCard,
+.tech,
+.primaryBtn,
+.secondaryBtn {
+  will-change: transform;
+
+  backface-visibility: hidden;
+
+  transform-style: preserve-3d;
+}
+
+/* ============================================================
+   SMOOTH SCROLL OFFSET
+============================================================ */
+
+.about {
+  scroll-margin-top: 90px;
+}
+
+/* ============================================================
+   ACCESSIBILITY
+============================================================ */
+
+.primaryBtn:focus-visible,
+.secondaryBtn:focus-visible,
+.tech:focus-visible {
+  outline: 2px solid #38bdf8;
+
+  outline-offset: 4px;
+
+  border-radius: 14px;
+}
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+
+    transition: none !important;
+
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   FINAL POLISH
+============================================================ */
+
+.glassCard,
+.infoCard,
+.techCard,
+.statCard {
+  overflow: hidden;
+}
+
+.glassCard:hover,
+.infoCard:hover,
+.techCard:hover,
+.statCard:hover {
+  cursor: default;
+}
+
+.tech {
+  user-select: none;
+}
+
+.tech:hover {
+  cursor: default;
+}
+
+.heading,
+.left,
+.right {
+  position: relative;
+
+  z-index: 2;
+}
+
+.about * {
+  box-sizing: border-box;
 }
