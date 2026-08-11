@@ -727,7 +727,7 @@
 
   margin-inline: auto;
 
-  transform: translateX(55px);
+  transform: none;
 }
 
 /* ===============================
@@ -1250,22 +1250,6 @@
 /* ===============================
    RESPONSIVE
 ================================ */
-
-@media (max-width: 992px) {
-  .glassCard {
-    position: relative;
-
-    right: auto;
-
-    bottom: auto;
-
-    margin-top: 35px;
-
-    width: 100%;
-
-    max-width: 330px;
-  }
-}
 
 @media (max-width: 768px) {
   .glassCard {
@@ -1874,3 +1858,723 @@ a:focus-visible {
 /* ==========================================
    END
 ========================================== */
+/* ==========================================================
+   MOBILE HERO FIX
+   ========================================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    padding: 110px 0 70px;
+  }
+
+  /* ==========================
+     MOBILE CONTAINER
+     ========================== */
+
+  .container {
+    width: min(100% - 32px, 600px);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 55px;
+
+    position: relative;
+  }
+
+  /* ==========================
+     MOBILE CONTENT
+     ========================== */
+
+  .content {
+    width: 100%;
+    max-width: 100%;
+
+    padding-right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* ==========================
+     BADGE
+     ========================== */
+
+  .badge {
+    max-width: 100%;
+
+    padding: 11px 16px;
+
+    margin-bottom: 28px;
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    white-space: normal;
+  }
+
+  .badgeDot {
+    flex-shrink: 0;
+  }
+
+  /* ==========================
+     INTRO
+     ========================== */
+
+  .intro {
+    font-size: 0.75rem;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 14px;
+  }
+
+  /* ==========================
+     HEADING
+     ========================== */
+
+  .heading {
+    width: 100%;
+
+    font-size: clamp(2.8rem, 12vw, 4rem);
+
+    line-height: 1.02;
+
+    margin-bottom: 22px;
+
+    word-break: normal;
+  }
+
+  /* ==========================
+     TYPEWRITER
+     ========================== */
+
+  .typewriter {
+    width: 100%;
+
+    display: block;
+
+    font-size: 1.15rem;
+
+    line-height: 1.6;
+
+    margin-bottom: 24px;
+  }
+
+  .typewriter span {
+    display: inline;
+  }
+
+  /* ==========================
+     DESCRIPTION
+     ========================== */
+
+  .description {
+    width: 100%;
+    max-width: 100%;
+
+    font-size: 1rem;
+
+    line-height: 1.75;
+
+    margin-bottom: 30px;
+  }
+
+  /* ==========================
+     BUTTONS
+     ========================== */
+
+  .actions {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 14px;
+
+    margin-bottom: 32px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+
+    min-height: 56px;
+
+    padding: 16px 22px;
+
+    font-size: 0.95rem;
+  }
+
+  /* ==========================
+     TECH STACK
+     ========================== */
+
+  .techStack {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    gap: 10px;
+
+    margin-bottom: 32px;
+  }
+
+  .techStack span {
+    padding: 9px 14px;
+
+    font-size: 0.82rem;
+  }
+
+  /* ==========================
+     STATS
+     ========================== */
+
+  .stats {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-top: 0;
+  }
+
+  .statCard {
+    width: 100%;
+    min-width: 0;
+
+    padding: 22px 20px;
+
+    border-radius: 20px;
+  }
+
+  .statCard h3 {
+    font-size: 2rem;
+  }
+
+  .statCard p,
+  .statCard span {
+    font-size: 0.95rem;
+  }
+
+  /* ==========================
+     SOCIALS
+     ========================== */
+
+  .socials {
+    margin-top: 4px;
+
+    gap: 14px;
+  }
+
+  .socials a {
+    width: 48px;
+    height: 48px;
+
+    font-size: 1.05rem;
+  }
+
+  /* ==========================
+     IMAGE AREA
+     ========================== */
+
+  .imageArea {
+    width: min(100%, 390px);
+
+    height: 390px;
+
+    margin: 0 auto;
+
+    transform: none;
+
+    flex-shrink: 0;
+  }
+
+  /* ==========================
+     PROFILE IMAGE
+     ========================== */
+
+  .profile {
+    width: 230px;
+    height: 230px;
+
+    border-width: 5px;
+  }
+
+  /* ==========================
+     IMAGE GLOW
+     ========================== */
+
+  .imageArea::before {
+    width: 280px;
+    height: 280px;
+
+    filter: blur(35px);
+  }
+
+  /* ==========================
+     RINGS
+     ========================== */
+
+  .ring {
+    width: 255px;
+    height: 255px;
+  }
+
+  .ring2 {
+    width: 295px;
+    height: 295px;
+  }
+
+  .ring3 {
+    width: 335px;
+    height: 335px;
+  }
+
+  .ring::after {
+    width: 11px;
+    height: 11px;
+
+    top: -6px;
+  }
+
+  .ring2::after {
+    width: 10px;
+    height: 10px;
+
+    bottom: -5px;
+  }
+
+  .ring3::after {
+    width: 8px;
+    height: 8px;
+
+    right: -4px;
+  }
+
+  /* ==========================
+     GLASS CARD
+     ========================== */
+
+  .glassCard {
+    position: absolute;
+
+    width: min(270px, calc(100% - 30px));
+
+    right: 0;
+    bottom: -15px;
+
+    margin: 0;
+
+    padding: 18px;
+
+    border-radius: 20px;
+  }
+
+  .glassHeader {
+    font-size: 0.9rem;
+
+    gap: 9px;
+
+    margin-bottom: 14px;
+  }
+
+  .glassBody {
+    gap: 11px;
+  }
+
+  .glassBody h4 {
+    font-size: 1rem;
+  }
+
+  .glassBody p {
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+  }
+
+  .glassBody small {
+    font-size: 0.75rem;
+  }
+
+  .progress {
+    height: 8px;
+  }
+
+  /* ==========================
+     SCROLL INDICATOR
+     ========================== */
+
+  .scroll {
+    display: none;
+  }
+}
+
+/* ==========================================================
+   SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .container {
+    width: calc(100% - 28px);
+
+    gap: 45px;
+  }
+
+  .badge {
+    font-size: 0.82rem;
+
+    padding: 10px 14px;
+  }
+
+  .intro {
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+  }
+
+  .heading {
+    font-size: clamp(2.5rem, 12vw, 3.3rem);
+  }
+
+  .typewriter {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+  }
+
+  .techStack {
+    gap: 8px;
+  }
+
+  .techStack span {
+    padding: 8px 12px;
+
+    font-size: 0.78rem;
+  }
+
+  .imageArea {
+    width: 340px;
+    max-width: 100%;
+
+    height: 350px;
+  }
+
+  .profile {
+    width: 200px;
+    height: 200px;
+  }
+
+  .imageArea::before {
+    width: 240px;
+    height: 240px;
+  }
+
+  .ring {
+    width: 225px;
+    height: 225px;
+  }
+
+  .ring2 {
+    width: 265px;
+    height: 265px;
+  }
+
+  .ring3 {
+    width: 305px;
+    height: 305px;
+  }
+
+  .glassCard {
+    width: 245px;
+
+    right: 0;
+
+    padding: 16px;
+  }
+
+  .glassBody p {
+    font-size: 0.78rem;
+  }
+}
+
+/* ==========================================================
+   VERY SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 360px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .heading {
+    font-size: 2.3rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .imageArea {
+    width: 310px;
+    height: 325px;
+  }
+
+  .profile {
+    width: 180px;
+    height: 180px;
+  }
+
+  .ring {
+    width: 205px;
+    height: 205px;
+  }
+
+  .ring2 {
+    width: 235px;
+    height: 235px;
+  }
+
+  .ring3 {
+    width: 275px;
+    height: 275px;
+  }
+
+  .glassCard {
+    width: 225px;
+
+    padding: 14px;
+  }
+}
+/* ==========================================================
+   MOBILE HERO — PROFILE FOCUS
+   ========================================================== */
+
+@media (max-width: 768px) {
+  /* Keep the hero inside the phone viewport */
+  .hero {
+    width: 100%;
+    min-height: auto;
+    padding: 100px 0 70px;
+    overflow: hidden;
+  }
+
+  /* Single-column mobile layout */
+  .container {
+    width: min(100% - 32px, 500px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    align-items: center;
+  }
+
+  /* Prevent the text area from becoming too wide */
+  .content {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0;
+  }
+
+  /* Profile area */
+  .imageArea {
+    width: 100%;
+    max-width: 360px;
+    height: 380px;
+    margin: 10px auto 0;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Make the profile picture the main focus */
+  .profile {
+    width: 235px;
+    height: 235px;
+    border-width: 5px;
+  }
+
+  .profile img {
+    object-position: center top;
+  }
+
+  /* Smaller mobile orbit rings */
+  .ring {
+    width: 265px;
+    height: 265px;
+  }
+
+  .ring2 {
+    width: 305px;
+    height: 305px;
+  }
+
+  .ring3 {
+    width: 345px;
+    height: 345px;
+  }
+
+  /* Reduce the ambient glow */
+  .imageArea::before {
+    width: 300px;
+    height: 300px;
+    filter: blur(35px);
+  }
+
+  /* REMOVE GLASS CARD ON MOBILE */
+  .glassCard {
+    display: none;
+  }
+
+  /* Keep stats from affecting the image positioning */
+  .stats {
+    width: 100%;
+  }
+
+  .statCard {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* Prevent buttons from overflowing */
+  .actions {
+    width: 100%;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    max-width: 100%;
+  }
+
+  /* Keep technology pills inside viewport */
+  .techStack {
+    width: 100%;
+  }
+
+  /* Center social icons */
+  .socials {
+    justify-content: flex-start;
+  }
+}
+
+/* ==========================================================
+   SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 90px;
+  }
+
+  .container {
+    width: calc(100% - 28px);
+    gap: 35px;
+  }
+
+  .heading {
+    font-size: 2.8rem;
+    line-height: 1.05;
+  }
+
+  .typewriter {
+    font-size: 1.15rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .imageArea {
+    max-width: 330px;
+    height: 350px;
+  }
+
+  .profile {
+    width: 215px;
+    height: 215px;
+  }
+
+  .ring {
+    width: 245px;
+    height: 245px;
+  }
+
+  .ring2 {
+    width: 280px;
+    height: 280px;
+  }
+
+  .ring3 {
+    width: 315px;
+    height: 315px;
+  }
+
+  .imageArea::before {
+    width: 270px;
+    height: 270px;
+  }
+}
+
+/* ==========================================================
+   VERY SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 380px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .imageArea {
+    max-width: 300px;
+    height: 320px;
+  }
+
+  .profile {
+    width: 195px;
+    height: 195px;
+  }
+
+  .ring {
+    width: 225px;
+    height: 225px;
+  }
+
+  .ring2 {
+    width: 255px;
+    height: 255px;
+  }
+
+  .ring3 {
+    width: 285px;
+    height: 285px;
+  }
+}

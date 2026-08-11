@@ -72,8 +72,8 @@ const Hero: React.FC = () => {
             </a>
 
             <a
-              href="/Martins-Madubuegwu-Resume.docx"
-              download="Martins-Madubuegwu-Resume.docx"
+              href="/Martins_Madubuegwu_Resume_QR.pdf"
+              download="Martins_Madubuegwu_Resume_QR.pdf"
               className={styles.secondaryBtn}
               aria-label="Download Martins Madubuegwu Resume"
             >
